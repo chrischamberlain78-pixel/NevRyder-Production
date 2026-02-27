@@ -68,38 +68,25 @@
 
     .nrp-music {
       width: 260px;
-      margin-bottom: 18px; /* slightly above the glass box */
+      margin-bottom: 18px;
+      margin-top: -60px; /* move NRP MUSIC up several notches */
       filter: drop-shadow(0 0 25px rgba(255,140,0,0.8));
     }
 
+    /* removed glass box styling */
     .link-glass {
       display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      padding: 70px 36px;
-      min-height: 400px;
-
-      /* Glassy translucent look */
-      background: linear-gradient(145deg,
-        rgba(255,255,255,0.08),
-        rgba(0,0,0,0.35)
-      );
-      backdrop-filter: blur(22px) saturate(140%);
-      -webkit-backdrop-filter: blur(22px) saturate(140%);
-
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.25);
-
-      /* Strong 3D depth */
-      box-shadow:
-        0 40px 120px rgba(0,0,0,0.9),
-        inset 0 1px 0 rgba(255,255,255,0.35),
-        inset 0 -30px 50px rgba(0,0,0,0.7);
-
-      justify-content: center;
-      align-items: flex-start;
-
-      transform: perspective(1200px) translateZ(20px);
+      flex-direction: column;
+      align-items: center; /* center buttons */
+      gap: 26px;
+      padding: 0;
+      min-height: auto;
+      background: none;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transform: none;
     }
 
     .platform-logo {
@@ -107,6 +94,14 @@
       height: auto;
       transition: transform 0.2s ease, filter 0.2s ease;
       cursor: pointer;
+    }
+
+    .platform-logo.apple {
+      width: 126px; /* 65% smaller from 360px */
+    }
+
+    .boomplay {
+      filter: drop-shadow(0 0 18px rgba(255,165,0,0.9));
     }
 
     .spotify {
@@ -117,15 +112,61 @@
       filter: drop-shadow(0 0 18px rgba(255,0,0,0.9));
     }
 
+    .apple {
+      filter: drop-shadow(0 0 18px rgba(255,105,180,0.9));
+    }
+
     .platform-logo:hover {
       transform: scale(1.08);
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
+      padding: 30px 20px 10px;
       font-size: 0.9rem;
       opacity: 0.6;
+    }
+
+    .ss-footer {
+      background: #e8dcc8; /* beige banner */
+      padding: 18px 0;
+      text-align: center;
+    }
+
+    .ss-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ss-text {
+      font-size: 0.85rem;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .ss-logo {
+      height: 34px; /* slightly larger */
+      width: auto;
+      opacity: 0.9;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .ss-logo:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .ss-logo {
+      height: 28px;
+      width: auto;
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .ss-logo:hover {
+      opacity: 1;
+      transform: scale(1.05);
     }
   </style></head><body>  <!-- TOP IMAGE -->  <div class="top-banner">
     <img src="nrp-productions.png" alt="NevRyder Productions">
@@ -134,17 +175,35 @@
   </div>  <!-- MUSIC LINKS --><div class="links">
 <img src="nrpmusic.png" alt="NRP Music" class="nrp-music">
 <div class="link-glass">
+  <a href="https://music.apple.com/us/album/looking-single/1877825643" target="_blank" rel="noopener">
+    <img src="apple.png" alt="Apple Music" class="platform-logo apple">
+  </a>
+
   <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2?si=kyrZbAhiQIWZEYl0Jh7RXg" target="_blank" rel="noopener">
     <img src="spotify.png" alt="Spotify" class="platform-logo spotify">
   </a>
-  <a href="https://share.google/S0BS6JJV8CWV0O0m2" target="_blank" rel="noopener">
+
+  <a href="https://www.youtube.com/user/ryder77196" target="_blank" rel="noopener">
     <img src="youtube.png" alt="YouTube" class="platform-logo youtube">
+  </a>
+
+  <a href="https://www.boomplay.com/songs/215816296" target="_blank" rel="noopener">
+    <img src="boomplay.png" alt="Boomplay" class="platform-logo boomplay">
   </a>
 </div>
 
-  </div>  <footer>
-    © <span id="year"></span> NevRyder Productions
-  </footer>  <script>
+  </div><footer>
+© <span id="year"></span> NevRyder Productions
+
+  </footer><div class="ss-footer">
+<div class="ss-inner">
+  <span class="ss-text">Website design by</span>
+  <a href="https://www.simplesitestudio.design" target="_blank" rel="noopener">
+    <img src="simplesitestudio.png" alt="SimpleSiteStudio" class="ss-logo">
+  </a>
+</div>
+
+  </div>  <script>
     const root = document.documentElement;
     window.addEventListener('scroll', () => {
       let zoom = 1 + window.scrollY * 0.00035;
