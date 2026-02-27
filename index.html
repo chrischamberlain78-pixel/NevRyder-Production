@@ -1,134 +1,87 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NRP | NevRyder Productions</title>
-  <meta name="description" content="NevRyder Productions – Drum & Bass & UK Garage DJ / Producer">  <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NRP | NevRyder Productions</title>  <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: Arial, sans-serif;
       background: #000;
       color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
     }
 
-    /* ===== BACKGROUND ZOOM ONLY ===== */
+    /* BACKGROUND */
     body::before {
-      content: "";
+      content: '';
       position: fixed;
       inset: 0;
       background: url('nrp-background.png') center / cover no-repeat;
-      transform: scale(var(--bg-scale, 1));
-      transform-origin: center;
       z-index: -1;
-      will-change: transform;
+      transform: scale(var(--bg-scale, 1));
+      transition: transform 0.1s linear;
     }
 
-    /* ===== TOP PRODUCTION BANNER ===== */
-    .top-banner {
-      width: 100%;
-      text-align: center;
-      margin-top: -30px; /* moved productions image up */
-    }
-
+    /* TOP BANNER */
     .top-banner img {
       width: 100%;
       display: block;
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0));
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0));
+      margin-top: -30px; /* move NevRyder Productions logo up */
+      -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent);
     }
 
-    /* ===== ABOUT IMAGE ===== */
+    /* ABOUT IMAGE */
     .about-wrap {
-      display: flex;
-      justify-content: center;
-      margin-top: 40px; /* moved about image down several notches */
+      margin: -10px auto 0; /* move ABOUT NRP box up a few notches */
+      text-align: center;
     }
 
-    .about-image {
+    .about-wrap img {
       max-width: 900px;
       width: 100%;
       border-radius: 20px;
       border: 4px solid #ff8c00;
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.9),
-        0 0 35px rgba(255,140,0,0.85);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.9);
     }
 
-    /* ===== LINKS GLASS BOX ===== */
-    .links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 120px 0 120px;
-    }
-
+    /* NRP MUSIC HEADER */
     .nrp-music {
+      display: block;
+      margin: 10px auto 20px; /* moved NRP MUSIC down a few notches */
       width: 260px;
-      margin-bottom: 18px;
-      margin-top: -60px; /* move NRP MUSIC up several notches */
       filter: drop-shadow(0 0 25px rgba(255,140,0,0.8));
     }
 
-    /* removed glass box styling */
-    .link-glass {
+    /* BUTTONS */
+    .music-links {
       display: flex;
       flex-direction: column;
-      align-items: center; /* center buttons */
+      align-items: center;
       gap: 26px;
-      padding: 0;
-      min-height: auto;
-      background: none;
-      border: none;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      transform: none;
+      margin-bottom: 40px;
     }
 
-    .platform-logo {
-      width: 90px;
-      height: auto;
-      transition: transform 0.2s ease, filter 0.2s ease;
-      cursor: pointer;
+    .platform-logo { width: 90px; }
+    .platform-logo.apple { width: 126px; }
+
+    /* SPOTIFY PLAYER */
+    .spotify-player {
+      max-width: 315px; /* 25% smaller than 420px */
+      margin: 40px auto;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.85);
     }
 
-    .platform-logo.apple {
-      width: 126px; /* 65% smaller from 360px */
-    }
-
-    .boomplay {
-      filter: drop-shadow(0 0 18px rgba(255,165,0,0.9));
-    }
-
-    .spotify {
-      filter: drop-shadow(0 0 18px rgba(30,215,96,0.9));
-    }
-
-    .youtube {
-      filter: drop-shadow(0 0 18px rgba(255,0,0,0.9));
-    }
-
-    .apple {
-      filter: drop-shadow(0 0 18px rgba(255,105,180,0.9));
-    }
-
-    .platform-logo:hover {
-      transform: scale(1.08);
-    }
-
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 30px 20px 10px;
-      font-size: 0.9rem;
       opacity: 0.6;
+      padding: 30px 10px 10px;
     }
 
     .ss-footer {
-      background: #e8dcc8; /* beige banner */
+      background: #e8dcc8;
       padding: 18px 0;
       text-align: center;
     }
@@ -139,78 +92,29 @@
       gap: 10px;
     }
 
-    .ss-text {
-      font-size: 0.85rem;
-      color: #333;
-      font-weight: 500;
-    }
+    .ss-logo { height: 34px; }
 
-    .ss-logo {
-      height: 34px; /* slightly larger */
-      width: auto;
-      opacity: 0.9;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .ss-logo:hover {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
-    .ss-logo {
-      height: 28px;
-      width: auto;
-      opacity: 0.85;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .ss-logo:hover {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-  </style></head><body>  <!-- TOP IMAGE -->  <div class="top-banner">
-    <img src="nrp-productions.png" alt="NevRyder Productions">
-  </div>  <!-- ABOUT IMAGE -->  <div class="about-wrap">
-    <img src="about-image.png" alt="About NRP" class="about-image">
-  </div>  <!-- MUSIC LINKS --><div class="links">
-<img src="nrpmusic.png" alt="NRP Music" class="nrp-music">
-<div class="link-glass">
-  <a href="https://music.apple.com/us/album/looking-single/1877825643" target="_blank" rel="noopener">
-    <img src="apple.png" alt="Apple Music" class="platform-logo apple">
-  </a>
-
-  <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2?si=kyrZbAhiQIWZEYl0Jh7RXg" target="_blank" rel="noopener">
-    <img src="spotify.png" alt="Spotify" class="platform-logo spotify">
-  </a>
-
-  <a href="https://www.youtube.com/user/ryder77196" target="_blank" rel="noopener">
-    <img src="youtube.png" alt="YouTube" class="platform-logo youtube">
-  </a>
-
-  <a href="https://www.boomplay.com/songs/215816296" target="_blank" rel="noopener">
-    <img src="boomplay.png" alt="Boomplay" class="platform-logo boomplay">
-  </a>
-</div>
-
-  </div><footer>
-© <span id="year"></span> NevRyder Productions
-
-  </footer><div class="ss-footer">
-<div class="ss-inner">
-  <span class="ss-text">Website design by</span>
-  <a href="https://www.simplesitestudio.design" target="_blank" rel="noopener">
-    <img src="simplesitestudio.png" alt="SimpleSiteStudio" class="ss-logo">
-  </a>
-</div>
-
+  </style></head><body>  <!-- TOP -->  <div class="top-banner">
+    <img src="nrp-productions.png" alt="NRP Productions">
+  </div>  <!-- ABOUT -->  <div class="about-wrap">
+    <img src="about-image.png" alt="About NRP">
+  </div>  <!-- MUSIC -->  <img src="nrpmusic.png" alt="NRP Music" class="nrp-music">  <div class="music-links">
+    <a href="https://music.apple.com/us/album/looking-single/1877825643" target="_blank"><img src="apple.png" class="platform-logo apple"></a>
+    <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2" target="_blank"><img src="spotify.png" class="platform-logo"></a>
+    <a href="https://www.youtube.com/user/ryder77196" target="_blank"><img src="youtube.png" class="platform-logo"></a>
+    <a href="https://www.boomplay.com/songs/215816296" target="_blank"><img src="boomplay.png" class="platform-logo"></a>
+  </div>  <!-- SPOTIFY EMBED -->  <div class="spotify-player">
+    <iframe src="https://open.spotify.com/embed/album/7DdkhKBb2kVhlKcERr82v2" width="100%" height="380" frameborder="0" allow="encrypted-media" loading="lazy"></iframe>
+  </div>  <footer>© NevRyder Productions</footer>  <div class="ss-footer">
+    <div class="ss-inner">
+      <span>Website design by</span>
+      <a href="https://www.simplesitestudio.design" target="_blank">
+        <img src="simplesitestudio.png" class="ss-logo">
+      </a>
+    </div>
   </div>  <script>
-    const root = document.documentElement;
     window.addEventListener('scroll', () => {
-      let zoom = 1 + window.scrollY * 0.00035;
-      zoom = Math.min(Math.max(zoom, 1), 1.35);
-      root.style.setProperty('--bg-scale', zoom);
+      document.documentElement.style.setProperty('--bg-scale', 1 + window.scrollY * 0.0003);
     });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script></body>
 </html>
