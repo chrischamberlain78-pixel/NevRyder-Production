@@ -1,349 +1,157 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NRP | NevRyder Productions</title>
-  <meta name="description" content="NRP (NevRyder Productions) – Drum & Bass and UK Garage DJ / Producer." />  <style>
+  <meta name="description" content="NevRyder Productions – Drum & Bass & UK Garage DJ / Producer">  <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background: #000;
       color: #fff;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .music-button {
-      display: block;
-      max-width: 125px; /* ~30% bigger */
-      width: 32%;
-      margin: -80px auto 12px;
-      cursor: pointer;
-      border-radius: 18px;
-      border: 2px solid rgba(255,255,255,0.9);
-      background: transparent;
-      transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
-      filter: drop-shadow(0 0 21px rgba(255,255,255,0.85));
-      box-shadow: 0 0 30px rgba(255,255,255,0.75), 0 0 52px rgba(255,255,255,0.6);
-    }
-
-    .music-button:hover {
-      transform: scale(1.06);
-      filter: drop-shadow(0 0 22px rgba(255,255,255,1));
-      box-shadow: 0 0 32px rgba(255,255,255,0.95);
-    }
-
-    .music-button:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 15px 35px rgba(255,0,150,0.9));
-    }
-
-    .about-image {
-      display: block;
-      max-width: 900px;
-      width: 100%;
-      height: auto;
-      margin: -10px auto 40px;
-      border-radius: 20px;
-      border: 4px solid #ff8c00;
-
-      /* Floating 3D effect */
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.95),
-        0 0 35px rgba(255,140,0,0.9),
-        inset 0 0 25px rgba(255,140,0,0.25);
-
-      transform: perspective(1200px) translateZ(40px);
-
-      
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 18%);
-    }
-
-    .top-banner {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      margin-top: -60px;
-    }
-
-    
-
-    .prod-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0));
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0));
-    }
-
-    .top-banner img:not(:first-child) {
-      -webkit-mask-image: none !important;
-      mask-image: none !important;
-    }
-
-    .top-banner img.about-image {
-      -webkit-mask-image: none;
-      mask-image: none;
-    }
-
-    header {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
+    /* ===== BACKGROUND ZOOM ONLY ===== */
+    body::before {
+      content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-image: url('nrp-background.png');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+      inset: 0;
+      background: url('nrp-background.png') center / cover no-repeat;
       transform: scale(var(--bg-scale, 1));
-      transform-origin: center center;
+      transform-origin: center;
       z-index: -1;
       will-change: transform;
     }
 
-    .hero {
-      max-width: 900px;
-    }
-
-    .logo {
-      max-width: 520px;
-      margin: 0 auto 30px;
-    }
-
-    .logo img {
+    /* ===== TOP PRODUCTION BANNER ===== */
+    .top-banner {
       width: 100%;
-      height: auto;
-      filter: drop-shadow(0 0 30px rgba(0,255,200,0.45));
+      text-align: center;
+      margin-top: -30px; /* moved productions image up */
     }
 
-    h1 {
-      font-size: 3rem;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
+    .top-banner img {
+      width: 100%;
+      display: block;
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0));
     }
 
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #00ffd5;
-      margin-bottom: 30px;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-bottom: 40px;
-    }
-
-    .buttons {
+    /* ===== ABOUT IMAGE ===== */
+    .about-wrap {
       display: flex;
-      gap: 20px;
       justify-content: center;
-      flex-wrap: wrap;
+      margin-top: 40px; /* moved about image down several notches */
     }
 
-    .btn {
-      padding: 14px 28px;
-      border: 2px solid #00ffd5;
-      color: #00ffd5;
-      text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: all 0.25s ease;
-      text-transform: uppercase;
-    }
-
-    .btn:hover {
-      background: #00ffd5;
-      color: #000;
-      box-shadow: 0 0 25px rgba(0,255,200,0.6);
-    }
-
-    section {
-      padding: 80px 20px;
-      text-align: center;
-      background: transparent;
-      border-top: none;
-    }
-
-    .glass-box {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 40px;
-      background: linear-gradient(145deg, rgba(20,20,20,0.65), rgba(0,0,0,0.85));
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.12);
-
-      /* 3D depth */
+    .about-image {
+      max-width: 900px;
+      width: 100%;
+      border-radius: 20px;
+      border: 4px solid #ff8c00;
       box-shadow:
-        0 35px 80px rgba(0,0,0,0.85),
-        inset 0 1px 0 rgba(255,255,255,0.25),
-        inset 0 -25px 40px rgba(0,0,0,0.9);
-
-      transform: perspective(1200px) translateZ(0);
-      position: relative;
+        0 30px 80px rgba(0,0,0,0.9),
+        0 0 35px rgba(255,140,0,0.85);
     }
 
-    .glass-box::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 22px;
-      background: linear-gradient(
-        to bottom right,
-        rgba(255,255,255,0.18),
-        rgba(255,255,255,0.02) 40%,
-        rgba(0,0,0,0.6)
-      );
-      pointer-events: none;
+    /* ===== LINKS GLASS BOX ===== */
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 120px 0 120px;
     }
 
-    .glass-box h3 {
-      color: #1fa2ff; /* electric blue */
-      text-shadow:
-        0 0 6px rgba(0,0,0,0.9),
-        0 0 14px rgba(0,0,0,0.95),
-        0 0 28px rgba(0,0,0,1),
-        0 8px 18px rgba(0,0,0,1);
-    }
-
-    .glass-box p {
-      text-shadow: 0 2px 6px rgba(0,0,0,0.85);
-    }
-
-    
-
-    
-
-    
-
-    section h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    section p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      opacity: 0.85;
-    }
-
-    footer {
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.6;
-      background: transparent;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      h3 { font-size: 1.6rem; }
-      
+    .nrp-music {
+      width: 260px;
+      margin-bottom: 18px; /* slightly above the glass box */
+      filter: drop-shadow(0 0 25px rgba(255,140,0,0.8));
     }
 
     .link-glass {
-      max-width: 420px;
-      margin: 40px auto;
-      padding: 28px 24px;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.85);
       display: flex;
-      gap: 26px;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 70px 36px;
+      min-height: 400px;
+
+      /* Glassy translucent look */
+      background: linear-gradient(145deg,
+        rgba(255,255,255,0.08),
+        rgba(0,0,0,0.35)
+      );
+      backdrop-filter: blur(22px) saturate(140%);
+      -webkit-backdrop-filter: blur(22px) saturate(140%);
+
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.25);
+
+      /* Strong 3D depth */
+      box-shadow:
+        0 40px 120px rgba(0,0,0,0.9),
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        inset 0 -30px 50px rgba(0,0,0,0.7);
+
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+
+      transform: perspective(1200px) translateZ(20px);
     }
 
     .platform-logo {
       width: 90px;
       height: auto;
-      cursor: pointer;
       transition: transform 0.2s ease, filter 0.2s ease;
+      cursor: pointer;
     }
 
-    .logo-link.spotify .platform-logo {
-      filter: drop-shadow(0 0 18px rgba(30,215,96,0.8));
+    .spotify {
+      filter: drop-shadow(0 0 18px rgba(30,215,96,0.9));
     }
 
-    .logo-link.youtube .platform-logo {
-      filter: drop-shadow(0 0 18px rgba(255,0,0,0.8));
+    .youtube {
+      filter: drop-shadow(0 0 18px rgba(255,0,0,0.9));
     }
 
-    .logo-link:hover .platform-logo {
+    .platform-logo:hover {
       transform: scale(1.08);
     }
 
-    
-
-    
-
-    
-
-    
-      h3 { font-size: 1.6rem; }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      opacity: 0.6;
     }
-  </style></head><body>  <div class="top-banner">
-    <div class="prod-image">
-      <img src="nrp-productions.png" alt="NRP Productions">
-    </div><img src="about-image.png" alt="About NRP" class="about-image" />
-
- alt="About NRP" class="about-image" />
-
-  </div>  <header>
-    <div class="hero"><p class="tagline">
-    Drum & Bass · UK Garage · Underground Energy
-  </p>
-
-  <div class="buttons">
-    <a href="#music" class="btn">Music (Coming Soon)</a>
-    <a href="#about" class="btn">About</a>
-  </div>
-</div>
-
-  </header><section id="links">
+  </style></head><body>  <!-- TOP IMAGE -->  <div class="top-banner">
+    <img src="nrp-productions.png" alt="NevRyder Productions">
+  </div>  <!-- ABOUT IMAGE -->  <div class="about-wrap">
+    <img src="about-image.png" alt="About NRP" class="about-image">
+  </div>  <!-- MUSIC LINKS --><div class="links">
+<img src="nrpmusic.png" alt="NRP Music" class="nrp-music">
 <div class="link-glass">
-  <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2?si=kyrZbAhiQIWZEYl0Jh7RXg" target="_blank" class="logo-link spotify">
-    <img src="spotify.png" alt="Spotify" class="platform-logo" />
+  <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2?si=kyrZbAhiQIWZEYl0Jh7RXg" target="_blank" rel="noopener">
+    <img src="spotify.png" alt="Spotify" class="platform-logo spotify">
   </a>
-  <a href="https://share.google/S0BS6JJV8CWV0O0m2" target="_blank" class="logo-link youtube">
-    <img src="youtube.png" alt="YouTube" class="platform-logo" />
+  <a href="https://share.google/S0BS6JJV8CWV0O0m2" target="_blank" rel="noopener">
+    <img src="youtube.png" alt="YouTube" class="platform-logo youtube">
   </a>
 </div>
 
-  </section>  <footer>
+  </div>  <footer>
     © <span id="year"></span> NevRyder Productions
   </footer>  <script>
     const root = document.documentElement;
-
     window.addEventListener('scroll', () => {
-      const offset = window.scrollY;
-
-      // Pure zoom only. No movement possible.
-      let zoom = 1 + offset * 0.00035;
-
-      // Clamp zoom so it never goes mental
+      let zoom = 1 + window.scrollY * 0.00035;
       zoom = Math.min(Math.max(zoom, 1), 1.35);
-
       root.style.setProperty('--bg-scale', zoom);
     });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script></body>
 </html>
