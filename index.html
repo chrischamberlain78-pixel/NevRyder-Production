@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       background: #000;
-      color: #fff;
+      color: #000;
     }
 
     /* BACKGROUND */
@@ -56,20 +56,33 @@
     .music-links {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center; /* center buttons */
       gap: 26px;
-      margin-bottom: 40px;
+      margin: 0 auto 40px;
+
+      /* box removed */
+      padding: 0;
+      background: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      box-shadow: none;
     }
 
-    .platform-logo { width: 90px; }
+    .platform-logo {
+      width: 90px;
+      height: auto;
+      cursor: pointer;
+    }
     .platform-logo.apple { width: 126px; }
 
     /* SPOTIFY PLAYER */
     .spotify-player {
-      max-width: 315px; /* 25% smaller than 420px */
+      max-width: 315px;
       margin: 40px auto;
       border-radius: 14px;
       overflow: hidden;
+      border: 3px solid #ff8c00; /* orange border */
       box-shadow: 0 25px 70px rgba(0,0,0,0.85);
     }
 
