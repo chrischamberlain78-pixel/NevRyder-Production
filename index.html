@@ -30,28 +30,54 @@
       width: 100%;
       display: block;
       margin-top: -30px;
-      -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent);
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 85%,
+        rgba(0,0,0,0.8) 92%,
+        transparent 100%
+      );
     }
 
     /* ABOUT IMAGE */
     .about-wrap {
-      margin: -10px auto 0;
+      margin: 40px auto 0;
       text-align: center;
       position: relative;
+      z-index: 2;
     }
 
     .about-wrap img {
-      max-width: 1080px;
-      width: 100%;
+      max-width: 900px;
+      width: 90%;
       border-radius: 20px;
       box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+    }
+
+    /* BIO BOX — MOVED UP */
+    .bio-box {
+      max-width: 900px;
+      margin: -10px auto 60px; /* ⬅ was 30px auto 60px */
+      padding: 36px 28px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      border: 3px solid #2aff00;
+      border-radius: 26px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.85);
+    }
+
+    .bio-box p {
+      color: #ff9a2f;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 18px;
     }
 
     /* NRP MUSIC HEADER */
     .nrp-music {
       display: block;
-      margin: -75px auto 20px;
-      width: 375px;
+      margin: -30px auto 20px;
+      width: 360px;
       position: relative;
       z-index: 2;
       filter: drop-shadow(0 0 25px rgba(255,140,0,0.8));
@@ -67,7 +93,7 @@
     }
 
     .platform-logo { width: 90px; cursor: pointer; }
-    .platform-logo.apple { width: 126px; }
+    .platform-logo.apple { width: 120px; }
 
     /* SPOTIFY PLAYER */
     .spotify-player {
@@ -132,45 +158,39 @@
     <img src="nrp-productions.png" alt="NevRyder Productions">
   </div>
 
-  <!-- ABOUT -->
+  <!-- ABOUT IMAGE -->
   <div class="about-wrap">
     <img src="about.png" alt="About NRP">
+  </div>
+
+  <!-- BIO -->
+  <div class="bio-box">
+    <p>Started DJing in the early 90s, when jungle and happy hardcore were underground in every sense. Vinyl ruled, pirate radio mattered, and the music came before everything else.</p>
+    <p>Cut teeth on stations like Fantasy FM and SCR, and anywhere with a sound system—youth clubs, back rooms, makeshift rigs. No stages. No ego. Just bass and pressure.</p>
+    <p>As the scene turned darker, DJing evolved into producing. Less playing tracks, more building them. Music rooted in jungle, hardcore, drum &amp; bass, and garage—stripped back, heavy, and functional. No gloss. No filler.</p>
+    <p>That mindset now lands where it hits hardest: clubs, late nights, loud systems, dark rooms.</p>
+    <p><strong>Underground by design.<br>No trends. No shine.<br>Just sound system music—made to be felt.</strong></p>
   </div>
 
   <!-- NRP MUSIC -->
   <img src="nrpmusic.png" alt="NRP Music" class="nrp-music">
 
   <div class="music-links">
-    <a href="https://music.apple.com/us/album/looking-single/1877825643" target="_blank">
-      <img src="apple.png" class="platform-logo apple">
-    </a>
-    <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2" target="_blank">
-      <img src="spotify.png" class="platform-logo">
-    </a>
-    <a href="https://www.youtube.com/user/ryder77196" target="_blank">
-      <img src="youtube.png" class="platform-logo">
-    </a>
-    <a href="https://www.boomplay.com/songs/215816296" target="_blank">
-      <img src="boomplay.png" class="platform-logo">
-    </a>
+    <a href="https://music.apple.com/us/album/looking-single/1877825643" target="_blank"><img src="apple.png" class="platform-logo apple"></a>
+    <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2" target="_blank"><img src="spotify.png" class="platform-logo"></a>
+    <a href="https://www.youtube.com/user/ryder77196" target="_blank"><img src="youtube.png" class="platform-logo"></a>
+    <a href="https://www.boomplay.com/songs/215816296" target="_blank"><img src="boomplay.png" class="platform-logo"></a>
   </div>
 
-  <!-- SPOTIFY EMBED -->
+  <!-- SPOTIFY -->
   <div class="spotify-player">
-    <iframe
-      src="https://open.spotify.com/embed/album/7DdkhKBb2kVhlKcERr82v2"
-      width="100%"
-      height="380"
-      frameborder="0"
-      allow="encrypted-media"
-      loading="lazy">
-    </iframe>
+    <iframe src="https://open.spotify.com/embed/album/7DdkhKBb2kVhlKcERr82v2" width="100%" height="380" frameborder="0" allow="encrypted-media"></iframe>
   </div>
 
   <!-- CONTACT -->
   <div class="contact-wrap">
     <a href="mailto:nevryder@hotmail.co.uk">
-      <img src="contact.png" alt="Contact NevRyder" class="contact-btn">
+      <img src="contact.png" class="contact-btn">
     </a>
   </div>
 
@@ -187,10 +207,7 @@
 
   <script>
     window.addEventListener('scroll', () => {
-      document.documentElement.style.setProperty(
-        '--bg-scale',
-        1 + window.scrollY * 0.0003
-      );
+      document.documentElement.style.setProperty('--bg-scale', 1 + window.scrollY * 0.0003);
     });
   </script>
 
