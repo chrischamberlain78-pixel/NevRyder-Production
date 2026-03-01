@@ -15,14 +15,14 @@
       overflow-x: hidden;
     }
 
-    /* BACKGROUND ZOOM */
+    /* BACKGROUND — FIXED, NO SCROLL */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background: url('nrp-background.png') center / cover no-repeat;
       z-index: -1;
-      transform: scale(var(--bg-scale, 1));
+      transform: scale(1);   /* locked */
     }
 
     /* TOP BANNER */
@@ -73,13 +73,12 @@
       margin-bottom: 18px;
     }
 
-    /* NRP MUSIC HEADER */
+    /* NRP MUSIC */
     .nrp-music {
       display: block;
       margin: -30px auto 20px;
       width: 360px;
-      position: relative;
-      z-index: 2;
+      max-width: 85vw;
       filter: drop-shadow(0 0 25px rgba(255,140,0,0.8));
     }
 
@@ -105,7 +104,7 @@
       box-shadow: 0 25px 70px rgba(0,0,0,0.85);
     }
 
-    /* CONTACT BUTTON */
+    /* CONTACT */
     .contact-wrap {
       text-align: center;
       margin-bottom: 60px;
@@ -204,12 +203,6 @@
       </a>
     </div>
   </div>
-
-  <script>
-    window.addEventListener('scroll', () => {
-      document.documentElement.style.setProperty('--bg-scale', 1 + window.scrollY * 0.0003);
-    });
-  </script>
 
 </body>
 </html>
