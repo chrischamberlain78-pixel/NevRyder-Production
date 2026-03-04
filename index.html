@@ -1,212 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NRP | NevRyder Productions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NRP | NevRyder Productions</title>
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
+*{box-sizing:border-box;margin:0;padding:0;}
 
-    /* BACKGROUND — STATIC */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: url('nrp-background.png') center / cover no-repeat;
-      z-index: -1;
-      transform: scale(1);
-    }
+body{
+font-family:Arial,sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
 
-    /* TOP BANNER */
-    .top-banner img {
-      width: 100%;
-      display: block;
-      margin-top: -30px;
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 85%,
-        rgba(0,0,0,0.8) 92%,
-        transparent 100%
-      );
-    }
+/* BACKGROUND */
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:url('nrp-background.png') center/cover no-repeat;
+z-index:-1;
+}
 
-    /* ABOUT IMAGE */
-    .about-wrap {
-      margin: 40px auto 0;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
+/* TOP BANNER */
+.top-banner img{
+width:100%;
+display:block;
+margin-top:-30px;
+-webkit-mask-image:linear-gradient(to bottom,black 85%,rgba(0,0,0,0.8) 92%,transparent 100%);
+}
 
-    .about-wrap img {
-      max-width: 900px;
-      width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.9);
-    }
+/* ABOUT */
+.about-wrap{
+margin:40px auto 0;
+text-align:center;
+}
 
-    /* BIO BOX */
-    .bio-box {
-      max-width: 900px;
-      margin: -10px auto 60px;
-      padding: 36px 28px;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(10px);
-      border: 3px solid #2aff00;
-      border-radius: 26px;
-      text-align: center;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.85);
-    }
+.about-wrap img{
+max-width:900px;
+width:90%;
+border-radius:20px;
+box-shadow:0 30px 80px rgba(0,0,0,0.9);
+}
 
-    .bio-box p {
-      color: #ff9a2f;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
+/* BIO BOX */
+.bio-box{
+max-width:900px;
+margin:-10px auto 60px;
+padding:36px 28px;
+background:rgba(0,0,0,0.55);
+backdrop-filter:blur(10px);
+border:3px solid #2aff00;
+border-radius:26px;
+text-align:center;
+box-shadow:0 30px 80px rgba(0,0,0,0.85);
+}
 
-    /* NRP MUSIC */
-    .nrp-music {
-      display: block;
-      margin: -30px auto 20px;
-      width: 360px;
-      max-width: 85vw;
-      filter: drop-shadow(0 0 25px rgba(255,140,0,0.8));
-    }
+.bio-box p{
+color:#ff9a2f;
+font-size:1.05rem;
+line-height:1.7;
+margin-bottom:18px;
+}
 
-    /* MUSIC BUTTONS */
-    .music-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 26px;
-      margin-bottom: 40px;
-    }
+/* NRP MUSIC */
+.nrp-music{
+display:block;
+margin:-30px auto 20px;
+width:360px;
+max-width:85vw;
+filter:drop-shadow(0 0 25px rgba(255,140,0,0.8));
+}
 
-    .platform-logo { width: 90px; cursor: pointer; }
-    .platform-logo.apple { width: 120px; }
+/* MUSIC BUTTONS */
+.music-links{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:26px;
+margin-bottom:40px;
+}
 
-    /* SPOTIFY PLAYER */
-    .spotify-player {
-      max-width: 315px;
-      margin: 40px auto 25px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 3px solid #ff8c00;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.85);
-    }
+.platform-logo{width:90px;cursor:pointer;}
+.platform-logo.apple{width:120px;}
 
-    /* CONTACT */
-    .contact-wrap {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+/* SPOTIFY SECTION */
+.spotify-section{
+max-width:420px;
+margin:40px auto;
+}
 
-    .contact-btn {
-      width: 260px;
-      cursor: pointer;
-      filter: drop-shadow(0 16px 40px rgba(0,0,0,0.85));
-      transition: transform 0.2s ease;
-    }
+.spotify-player{
+margin-bottom:25px;
+border-radius:14px;
+overflow:hidden;
+border:3px solid #ff8c00;
+box-shadow:0 25px 70px rgba(0,0,0,0.85);
+}
 
-    .contact-btn:hover {
-      transform: scale(1.04);
-    }
+/* CONTACT */
+.contact-wrap{
+text-align:center;
+margin-bottom:60px;
+}
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      opacity: 0.6;
-      padding: 30px 10px 10px;
-    }
+.contact-btn{
+width:260px;
+cursor:pointer;
+filter:drop-shadow(0 16px 40px rgba(0,0,0,0.85));
+transition:transform 0.2s ease;
+}
 
-    .ss-footer {
-      background: #e8dcc8;
-      padding: 18px 0;
-      text-align: center;
-    }
+.contact-btn:hover{
+transform:scale(1.04);
+}
 
-    .ss-inner {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
+/* FOOTER */
+footer{
+text-align:center;
+opacity:0.6;
+padding:30px 10px 10px;
+}
 
-    .ss-text {
-      font-size: 0.85rem;
-      color: #000;
-      font-weight: 500;
-    }
+.ss-footer{
+background:#e8dcc8;
+padding:18px 0;
+text-align:center;
+}
 
-    .ss-logo { height: 34px; }
-  </style>
+.ss-inner{
+display:inline-flex;
+align-items:center;
+gap:10px;
+}
+
+.ss-text{
+font-size:0.85rem;
+color:#000;
+font-weight:500;
+}
+
+.ss-logo{height:34px;}
+
+</style>
 </head>
 
 <body>
 
-  <!-- TOP -->
-  <div class="top-banner">
-    <img src="nrp-productions.png" alt="NevRyder Productions">
-  </div>
+<div class="top-banner">
+<img src="nrp-productions.png" alt="NevRyder Productions">
+</div>
 
-  <!-- ABOUT -->
-  <div class="about-wrap">
-    <img src="aboutnrp.png" alt="About NRP">
-  </div>
+<div class="about-wrap">
+<img src="aboutnrp.png" alt="About NRP">
+</div>
 
-  <!-- BIO -->
-  <div class="bio-box">
-    <p>
-      I started out in the early 90s when jungle and happy hardcore were underground in every sense. Back then, it wasn’t about the 'brand'—it was about the music and the mission. I remember walking miles across Sheffield just to get a one-hour slot on Fantasy FM, or designing our own flyers in IT class and sneaking around to put them up all over school. We’d carry every bit of gear we owned on foot just for a chance to play a youth club set.
-    </p>
+<div class="bio-box">
 
-    <p>
-      As the scene turned darker, my obsession shifted from playing tracks to building them. My production style is a direct reflection of those roots: jungle, hardcore, and garage, but stripped of all the unnecessary gloss. I’ve moved away from the 'shine' to focus on what actually works on a floor. I make functional music—heavy, raw, and built specifically for loud systems and dark rooms.
-    </p>
+<p>
+I started out in the early 90s when jungle and happy hardcore were underground in every sense. Back then, it wasn’t about the 'brand'—it was about the music and the mission. I remember walking miles across Sheffield just to get a one-hour slot on Fantasy FM, or designing our own flyers in IT class and sneaking around to put them up all over school. We’d carry every bit of gear we owned on foot just for a chance to play a youth club set.
+</p>
 
-    <p>
-      I’m not interested in trends or filler. I make sound system music designed to be felt. Underground by design, exactly how it started.
-    </p>
-  </div>
+<p>
+As the scene turned darker, my obsession shifted from playing tracks to building them. My production style is a direct reflection of those roots: jungle, hardcore, and garage, but stripped of all the unnecessary gloss. I’ve moved away from the 'shine' to focus on what actually works on a floor. I make functional music—heavy, raw, and built specifically for loud systems and dark rooms.
+</p>
 
-  <!-- NRP MUSIC -->
-  <img src="nrpmusic.png" alt="NRP Music" class="nrp-music">
+<p>
+I’m not interested in trends or filler. I make sound system music designed to be felt. Underground by design, exactly how it started.
+</p>
 
-  <div class="music-links">
-    <a href="https://music.apple.com/us/album/looking-single/1877825643" target="_blank"><img src="apple.png" class="platform-logo apple"></a>
-    <a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2" target="_blank"><img src="spotify.png" class="platform-logo"></a>
-    <a href="https://www.youtube.com/user/ryder77196" target="_blank"><img src="youtube.png" class="platform-logo"></a>
-    <a href="https://www.boomplay.com/songs/215816296" target="_blank"><img src="boomplay.png" class="platform-logo"></a>
-  </div>
+</div>
 
-  <div class="spotify-player">
-    <iframe src="https://open.spotify.com/embed/album/7DdkhKBb2kVhlKcERr82v2" width="100%" height="380" frameborder="0" allow="encrypted-media"></iframe>
-  </div>
+<img src="nrpmusic.png" alt="NRP Music" class="nrp-music">
 
-  <div class="contact-wrap">
-    <a href="mailto:nevryder@hotmail.co.uk">
-      <img src="contact.png" class="contact-btn">
-    </a>
-  </div>
+<div class="music-links">
 
-  <footer>© NevRyder Productions</footer>
+<a href="https://music.apple.com/us/album/looking-single/1877825643" target="_blank">
+<img src="apple.png" class="platform-logo apple">
+</a>
 
-  <div class="ss-footer">
-    <div class="ss-inner">
-      <span class="ss-text">Website design by</span>
-      <a href="https://www.simplesitestudio.design" target="_blank">
-        <img src="simplesitestudio.png" class="ss-logo">
-      </a>
-    </div>
-  </div>
+<a href="https://open.spotify.com/album/7DdkhKBb2kVhlKcERr82v2" target="_blank">
+<img src="spotify.png" class="platform-logo">
+</a>
+
+<a href="https://www.youtube.com/user/ryder77196" target="_blank">
+<img src="youtube.png" class="platform-logo">
+</a>
+
+<a href="https://www.boomplay.com/songs/215816296" target="_blank">
+<img src="boomplay.png" class="platform-logo">
+</a>
+
+</div>
+
+<!-- SPOTIFY PLAYERS -->
+
+<div class="spotify-section">
+
+<div class="spotify-player">
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/album/7DdkhKBb2kVhlKcERr82v2"
+width="100%"
+height="380"
+frameborder="0"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy"></iframe>
+</div>
+
+<div class="spotify-player">
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/track/3Rspgn0vaV2lheHPDxurBs"
+width="100%"
+height="152"
+frameborder="0"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy"></iframe>
+</div>
+
+<div class="spotify-player">
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/album/2nAkZz2oBtRkeIGPbKISWb"
+width="100%"
+height="380"
+frameborder="0"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy"></iframe>
+</div>
+
+</div>
+
+<div class="contact-wrap">
+<a href="mailto:nevryder@hotmail.co.uk">
+<img src="contact.png" class="contact-btn">
+</a>
+</div>
+
+<footer>© NevRyder Productions</footer>
+
+<div class="ss-footer">
+<div class="ss-inner">
+<span class="ss-text">Website design by</span>
+<a href="https://www.simplesitestudio.design" target="_blank">
+<img src="simplesitestudio.png" class="ss-logo">
+</a>
+</div>
+</div>
 
 </body>
 </html>
